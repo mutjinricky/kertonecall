@@ -26,7 +26,19 @@ code {
   src: url(../public/assets/fonts/Nanum_Gothic/NanumGothic-Bold.ttf);
 }
 
+@font-face {
+  font-family: "inter-800";
+  src: url(../public/assets/Inter/static/Inter-Bold.ttf);
+}
+
+@font-face {
+  font-family: "noto";
+  src: url(../public/assets/Noto_Sans_KR/NotoSansKR-Light.otf);
+}
+
 :root {
   --font-nanum: "nanum-gothic";
   --font-nanum2: "nanum-gothic2";
+  --font-inter: "inter-800";
+  --font-noto: "noto";
 }

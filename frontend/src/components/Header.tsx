@@ -44,7 +44,7 @@ const Text = styled.div`
   padding: 35px;
   font-weight: bold;
   font-size: 30px;
-  font-family: var(--font-nanum2);
+  font-family: var(--font-noto);
   /* background-color: ${(props) => props.theme.colors.primary}; */
 `;
 

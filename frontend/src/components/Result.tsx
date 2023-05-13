@@ -76,14 +76,15 @@ const ImageWrapper = styled.div`
 const Text = styled.div`
   font-size: 32px;
   font-weight: 800;
-  font-family: var(--font-nanum);
+  padding-top: 30px;
+  font-family: var(--font-noto);
 `;
 
 const Desc = styled.div`
   font-size: 24px;
   font-weight: 600;
-  font-family: var(--font-nanum);
   margin-bottom: 60px;
+  font-family: var(--font-noto);
 `;
 
 const Score = styled.div`
