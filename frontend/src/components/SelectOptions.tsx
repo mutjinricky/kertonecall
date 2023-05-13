@@ -74,8 +74,12 @@ const Wrapper = styled.div`
 
 const Text = styled.div`
   align-self: flex-start;
-  font-size: 15px;
+  font-size: 20px;
   padding-top: 60px;
+  padding-bottom: 10px;
+  font-family: var(--font-nanum);
+  font-weight: bold;
+  color: #1a77cc;
 `;
 
 export default SelectOptions;

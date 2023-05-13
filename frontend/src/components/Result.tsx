@@ -37,10 +37,12 @@ const Text = styled.div`
   font-size: 32px;
   font-weight: bold;
   padding-top: 30px;
+  font-family: var(--font-nanum);
 `;
 const Text2 = styled.div`
   font-size: 24px;
   padding-top: 10px;
+  font-family: var(--font-nanum);
 `;
 
 const Score = styled.div`
