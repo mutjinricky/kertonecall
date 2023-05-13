@@ -3,7 +3,7 @@ import BottomButtons from "./BottomButton";
 import StyledCheckbox from "./StyledCheckbox";
 
 interface Props {
-  setStep: (arg: number) => void;
+  moveStep: (arg: number) => void;
   members: number;
   setMembers: (arg: number) => void;
   isChallengeMode: boolean;
@@ -13,7 +13,7 @@ interface Props {
 function SelectOptions({
   members,
   setMembers,
-  setStep,
+  moveStep,
   isChallengeMode,
   setIsChallengeMode,
 }: Props) {
@@ -25,7 +25,7 @@ function SelectOptions({
         setIsChallengeMode={setIsChallengeMode}
       />
       <BottomButtons>
-        <BottomButtons.button handleClick={() => setStep(1)}>
+        <BottomButtons.button handleClick={() => moveStep(1)}>
           포즈 선택하기
         </BottomButtons.button>
       </BottomButtons>
