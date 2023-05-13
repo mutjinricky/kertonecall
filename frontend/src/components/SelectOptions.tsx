@@ -26,7 +26,7 @@ function SelectOptions({
         setIsChallengeMode={setIsChallengeMode}
       />
       <BottomButtons>
-        <BottomButtons.button handleClick={() => console.log("hello")}>
+        <BottomButtons.button handleClick={() => setStep(1)}>
           포즈 선택하기
         </BottomButtons.button>
       </BottomButtons>
