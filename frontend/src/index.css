@@ -14,15 +14,27 @@ code {
 
 @font-face {
   font-family: "nanum-gothic";
-  src: url(C:\Users\sumin\Desktop\developing\kerton_call\kertonecall\frontend\src\assets\fonts\Nanum_Gothic\NanumGothic-Regular.ttf);
+  src: url(../public/assets/fonts/Nanum_Gothic/NanumGothic-Regular.ttf);
 }
 
 @font-face {
   font-family: "nanum-gothic2";
-  src: url(C:\Users\sumin\Desktop\developing\kerton_call\kertonecall\frontend\src\assets\fonts\Nanum_Gothic\NanumGothic-Bold.ttf);
+  src: url(../public/assets/fonts/Nanum_Gothic/NanumGothic-Bold.ttf);
+}
+
+@font-face {
+  font-family: "inter-800";
+  src: url(../public/assets/Inter/static/Inter-Bold.ttf);
+}
+
+@font-face {
+  font-family: "noto";
+  src: url(../public/assets/Noto_Sans_KR/NotoSansKR-Light.otf);
 }
 
 :root {
   --font-nanum: "nanum-gothic";
   --font-nanum2: "nanum-gothic2";
+  --font-inter: "inter-800";
+  --font-noto: "noto";
 }

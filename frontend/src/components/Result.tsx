@@ -65,12 +65,12 @@ const Text = styled.div`
   font-size: 32px;
   font-weight: bold;
   padding-top: 30px;
-  font-family: var(--font-nanum);
+  font-family: var(--font-noto);
 `;
 const Desc = styled.div`
   font-size: 24px;
   padding-top: 10px;
-  font-family: var(--font-nanum);
+  font-family: var(--font-noto);
 `;
 
 const Score = styled.div`

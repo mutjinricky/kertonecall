@@ -31,6 +31,7 @@ const Wrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  // background-color: ${(props) => props.theme.colors.primary};
   padding: 20px;
 `;
 const Text = styled.div`
@@ -45,13 +46,13 @@ const TextWrapper = styled.div`
   justify-content: center;
   align-items: flex-start;
   gap: 5px;
-  font-family: var(--font-nanum);
+  font-family: var(--font-noto);
   padding-top: 10px;
-  color: #1a77cc;
 `;
 
 const Description = styled.div`
   color: gray;
   font-size: 15px;
   padding-top: 3px;
+  font-size: 13px;
 `;

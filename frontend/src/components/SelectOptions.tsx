@@ -23,6 +23,10 @@ function SelectOptions({
 }: Props) {
   return (
     <Wrapper>
+      <Titles>
+        <Title>Photose</Title>
+        <Subtitle>소중한 만남의 기록, 포토의 포즈로부터</Subtitle>
+      </Titles>
       <Text>인원을 선택해주세요</Text>
       <Box sx={{ minWidth: "100%" }}>
         <FormControl fullWidth>
@@ -61,7 +65,7 @@ const Wrapper = styled.div`
   justify-content: flex-start;
   align-items: center;
   gap: 15px;
-  padding: 20px;
+  padding: 40px;
 `;
 
 const Text = styled.div`
@@ -69,9 +73,31 @@ const Text = styled.div`
   font-size: 20px;
   padding-top: 60px;
   padding-bottom: 10px;
-  font-family: var(--font-nanum);
+  font-family: var(--font-noto);
   font-weight: bold;
   color: #1a77cc;
+`;
+
+const Titles = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+`;
+
+const Title = styled.div`
+  text-align: center;
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #1a77cc;
+  font-family: var(--font-inter);
+`;
+
+const Subtitle = styled.div`
+  text-align: center;
+  font-family: var(--font-noto);
+  font-weight: bold;
+  color: gray;
 `;
 
 export default SelectOptions;
