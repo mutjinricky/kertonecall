@@ -33,7 +33,9 @@ export default function Result({ moveStep, score, isChallengeMode }: Props) {
         <Score style={{ fontSize: "56px", paddingBottom: "10px" }}>%</Score>
       </div>
       <Desc>{desc}</Desc>
-      <img src="logo192.png" alt="result" />
+      <ImageWrapper>
+        <img src="logo192.png" alt="result" />
+      </ImageWrapper>
       <BottomButtons>
         {(!isChallengeMode || grade === "good") && (
           <BottomButtons.button handleClick={() => {}}>
@@ -41,6 +43,7 @@ export default function Result({ moveStep, score, isChallengeMode }: Props) {
           </BottomButtons.button>
         )}
         <BottomButtons.button
+          danger={isChallengeMode && grade !== "good"}
           handleClick={() => {
             moveStep(-1);
           }}
@@ -58,22 +61,31 @@ const Wrapper = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  padding: 20px;
+  gap: 15px;
+  padding-top: 150px;
+`;
+
+const ImageWrapper = styled.div`
+  width: 90%;
+  height: 0;
+  padding-bottom: 50.63%;
+  background-color: yellow;
+  overflow: hidden;
 `;
 
 const Text = styled.div`
   font-size: 32px;
-  font-weight: bold;
-  padding-top: 30px;
+  font-weight: 800;
   font-family: var(--font-nanum);
 `;
+
 const Desc = styled.div`
   font-size: 24px;
-  padding-top: 10px;
+  font-weight: 600;
   font-family: var(--font-nanum);
+  margin-bottom: 60px;
 `;
 
 const Score = styled.div`
   font-size: 96px;
-  padding-top: 5px;
 `;

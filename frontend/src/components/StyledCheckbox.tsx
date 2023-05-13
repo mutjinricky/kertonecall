@@ -2,24 +2,28 @@ import styled from "styled-components";
 import Checkbox from "@mui/material/Checkbox";
 
 interface Props {
-  isChallengeMode: boolean;
-  setIsChallengeMode: (arg: boolean) => void;
+  isChecked: boolean;
+  setIsChecked: (arg: boolean) => void;
+  text: string;
+  desc: string;
 }
 
 export default function StyledCheckbox({
-  isChallengeMode,
-  setIsChallengeMode,
+  isChecked,
+  setIsChecked,
+  text,
+  desc,
 }: Props) {
   return (
     <Wrapper>
       <TextWrapper>
-        <Text>챌린지 모드</Text>
-        <Description>유사도가 80% 이상인 경우에만 촬영 성공</Description>
+        <Text>{text}</Text>
+        <Description>{desc}</Description>
       </TextWrapper>
       <Checkbox
-        checked={isChallengeMode}
+        checked={isChecked}
         onChange={() => {
-          setIsChallengeMode(!isChallengeMode);
+          setIsChecked(!isChecked);
         }}
       />
     </Wrapper>
@@ -30,8 +34,8 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
-  padding: 20px;
+  width: 90%;
+  padding: 10px 0px;
 `;
 const Text = styled.div`
   font-weight: bold;

@@ -12,6 +12,9 @@ interface Props {
   setMembers: (arg: number) => void;
   isChallengeMode: boolean;
   setIsChallengeMode: (arg: boolean) => void;
+  isRandom: boolean;
+  setIsRandom: (arg: boolean) => void;
+  setPose: (arg: string) => void;
 }
 
 function SelectOptions({
@@ -20,11 +23,22 @@ function SelectOptions({
   moveStep,
   isChallengeMode,
   setIsChallengeMode,
+  isRandom,
+  setIsRandom,
+  setPose,
 }: Props) {
+  const handleSelectPose = () => {
+    if (isRandom) {
+      setPose("sample.jpeg");
+      moveStep(2);
+    } else {
+      moveStep(1);
+    }
+  };
   return (
     <Wrapper>
       <Text>인원을 선택해주세요</Text>
-      <Box sx={{ minWidth: "100%" }}>
+      <Box sx={{ minWidth: "90%" }}>
         <FormControl fullWidth>
           <Select
             value={String(members)}
@@ -42,11 +56,19 @@ function SelectOptions({
         </FormControl>
       </Box>
       <StyledCheckbox
-        isChallengeMode={isChallengeMode}
-        setIsChallengeMode={setIsChallengeMode}
+        isChecked={isChallengeMode}
+        setIsChecked={setIsChallengeMode}
+        text="챌린지 모드"
+        desc="유사도가 70% 이상이면 성공이에요"
+      />
+      <StyledCheckbox
+        isChecked={isRandom}
+        setIsChecked={setIsRandom}
+        text="랜덤 모드"
+        desc="포토즈가 포즈를 랜덤으로 골라줘요"
       />
       <BottomButtons>
-        <BottomButtons.button handleClick={() => moveStep(1)}>
+        <BottomButtons.button handleClick={handleSelectPose}>
           포즈 선택하기
         </BottomButtons.button>
       </BottomButtons>
@@ -61,14 +83,12 @@ const Wrapper = styled.div`
   justify-content: flex-start;
   align-items: center;
   gap: 15px;
-  padding: 20px;
 `;
 
 const Text = styled.div`
-  align-self: flex-start;
+  width: 90%;
   font-size: 20px;
   padding-top: 60px;
-  padding-bottom: 10px;
   font-family: var(--font-nanum);
   font-weight: bold;
   color: #1a77cc;

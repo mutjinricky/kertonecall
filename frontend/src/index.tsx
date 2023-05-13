@@ -13,7 +13,7 @@ const theme = {
   colors: {
     primary: "#bbdeff",
     secondary: "#E8E1D7",
-    danger: "#dc3545",
+    danger: "#EA6D6D",
   },
 };
 
