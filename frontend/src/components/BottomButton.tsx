@@ -8,14 +8,19 @@ interface Props {
 interface ButtonProps {
   children: string;
   handleClick: (arg: MouseEvent) => void;
+  isDisabled?: boolean;
 }
 
 function BottomButtons({ children }: Props) {
   return <Wrapper>{children}</Wrapper>;
 }
 
-function Button({ children, handleClick }: ButtonProps) {
-  return <StyledButton onClick={handleClick}>{children}</StyledButton>;
+function Button({ children, handleClick, isDisabled }: ButtonProps) {
+  return (
+    <StyledButton isDisabled={isDisabled} onClick={handleClick}>
+      {children}
+    </StyledButton>
+  );
 }
 
 BottomButtons.button = Button;
@@ -34,11 +39,12 @@ const Wrapper = styled.div`
   background-color: white;
 `;
 
-const StyledButton = styled.div`
+const StyledButton = styled.div<{ isDisabled?: boolean }>`
   width: 90%;
   height: 60px;
   border-radius: 15px;
-  background-color: ${(props) => props.theme.colors.primary};
+  background-color: ${(props) =>
+    props.isDisabled ? "gray" : props.theme.colors.primary};
   text-align: center;
   line-height: 60px;
   font-size: 15px;

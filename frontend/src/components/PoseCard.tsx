@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { MouseEvent } from "react";
+import CheckIcon from "@mui/icons-material/Check";
 
 interface Props {
   imageUrl: string;
@@ -10,32 +11,38 @@ interface Props {
 export default function PoseCard({ imageUrl, isSelected, handleClick }: Props) {
   return (
     <Wrapper onClick={handleClick}>
-      <img src={imageUrl} alt="result" width={100} height={100} />
-      {isSelected && <Cover>^</Cover>}
+      <img src={imageUrl} alt="result" width="100%" />
+      {isSelected && (
+        <CheckWrapper>
+          <Cover />
+          <CheckIcon style={{ fontSize: "100px", color: "red", zIndex: 11 }} />
+        </CheckWrapper>
+      )}
     </Wrapper>
   );
 }
 
 const Wrapper = styled.div`
   position: relative;
-  background-color: yellow;
-  width: 200px;
-  height: 300px;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%;
   border-radius: 15px;
   overflow: hidden;
 `;
 
-const Text = styled.div`
-  align-self: flex-start;
-  font-size: 15px;
-  padding-top: 60px;
-`;
-
-const Cover = styled.div`
+const CheckWrapper = styled.div`
   position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+`;
+
+const Cover = styled.div`
+  position: absolute;
   top: 0px;
   width: 100%;
   height: 100%;
