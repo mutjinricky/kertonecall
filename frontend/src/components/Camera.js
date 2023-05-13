@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import BottomButtons from "./BottomButton";
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect } from "react";
 
 function Camera({ moveStep }) {
   const videoRef = useRef(null);

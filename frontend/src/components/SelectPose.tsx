@@ -38,7 +38,7 @@ export default function SelectPose({ moveStep, setPose }: Props) {
       </PoseCardsWrapper>
       <BottomButtons>
         <BottomButtons.button
-          isDisabled={selectedPose === -1}
+          disabled={selectedPose === -1}
           handleClick={handleSelectPose}
         >
           촬영 시작하기

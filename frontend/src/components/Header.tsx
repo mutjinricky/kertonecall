@@ -1,28 +1,32 @@
 import styled from "styled-components";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
+import { ReactNode } from "react";
 
 interface Props {
-  canBack: boolean;
   moveStep: (arg: number) => void;
+  children: ReactNode;
+  isRandom: boolean;
 }
 
-function Header({ canBack, moveStep }: Props) {
+function Header({ moveStep, children, isRandom }: Props) {
+  const handleArrow = () => {
+    if (isRandom) {
+      moveStep(-2);
+    } else {
+      moveStep(-1);
+    }
+  };
   return (
     <Wrapper>
-      <Text>사진을 찍어주세요</Text>
-      {/* {canBack && (
-        <StyledArrow
-          onClick={() => moveStep(-1)}
-          style={{ fontSize: "30px" }}
-        />
-      )} */}
+      <StyledArrow onClick={handleArrow} style={{ fontSize: "30px" }} />
+      <Text>{children}</Text>
     </Wrapper>
   );
 }
 
 const StyledArrow = styled(ArrowBackIosNewIcon)`
   position: absolute;
-  right: 10px;
+  left: 0px;
   color: black;
 `;
 
@@ -31,7 +35,7 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100vw;
+  width: 90%;
   height: 100px;
   /* background-color: ${(props) => props.theme.colors.primary}; */
 `;
