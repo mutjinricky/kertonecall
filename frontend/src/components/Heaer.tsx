@@ -19,6 +19,7 @@ const Wrapper = styled.div`
 const Text = styled.div`
   padding: 35px;
   font-weight: bold;
+  background-color: ${(props) => props.theme.colors.primary};
   font-size: 20px;
 `;
 
