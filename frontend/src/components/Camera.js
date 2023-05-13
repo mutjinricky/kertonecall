@@ -38,23 +38,26 @@ function Camera({ moveStep }) {
   }, []);
 
   const handleCapture = () => {
-    const canvas = document.createElement("canvas");
-    const video = videoRef.current;
-    const context = canvas.getContext("2d");
-    context.drawImage(video, 0, 0, canvas.width, canvas.height);
-    const imageDataUrl = canvas.toDataURL("image/png");
+    try {
+      const canvas = document.createElement("canvas");
+      const video = videoRef.current;
+      const context = canvas.getContext("2d");
+      context.drawImage(video, 0, 0, canvas.width, canvas.height);
+      const imageDataUrl = canvas.toDataURL("image/png");
 
-    console.log(imageDataUrl);
-    const stream = videoRef.current.srcObject;
-    stream.getTracks().forEach((track) => {
-      console.log(track);
-      track.stop();
-    });
-    moveStep(1);
+      console.log(imageDataUrl);
+      const stream = videoRef.current.srcObject;
+      stream.getTracks().forEach((track) => {
+        console.log(track);
+        track.stop();
+      });
+      moveStep(1);
+    } catch {}
   };
 
   return (
     <Wrapper>
+      <Text>포즈를 맞춰주세요</Text>
       <CameraWrapper>
         <PoseWrapper>
           <img src="sample.jpeg" alt="result" width="100%" />
@@ -74,9 +77,10 @@ const Wrapper = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  padding: 20px;
+  gap: 20px;
+  padding-top: 15vh;
 `;
 
 const CameraWrapper = styled.div`
@@ -95,6 +99,11 @@ const PoseWrapper = styled.div`
   height: 100%;
   opacity: 0.3;
   background-color: black;
+`;
+
+const Text = styled.div`
+  font-size: 18px;
+  padding-top: 60px;
 `;
 
 export default Camera;

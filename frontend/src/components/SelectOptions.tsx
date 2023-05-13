@@ -1,9 +1,7 @@
 import styled from "styled-components";
 import BottomButtons from "./BottomButton";
 import StyledCheckbox from "./StyledCheckbox";
-import * as React from "react";
 import Box from "@mui/material/Box";
-import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
@@ -23,23 +21,16 @@ function SelectOptions({
   isChallengeMode,
   setIsChallengeMode,
 }: Props) {
-  const [age, setAge] = React.useState("");
-
-  const handleChange = (event: SelectChangeEvent) => {
-    setAge(event.target.value as string);
-  };
   return (
     <Wrapper>
       <Text>인원을 선택해주세요</Text>
-      <Box sx={{ minWidth: 120 }}>
+      <Box sx={{ minWidth: "100%" }}>
         <FormControl fullWidth>
-          <InputLabel id="demo-simple-select-label">인원</InputLabel>
           <Select
-            labelId="demo-simple-select-label"
-            id="demo-simple-select"
-            value={age}
-            label="인원"
-            onChange={handleChange}
+            value={String(members)}
+            onChange={(event: SelectChangeEvent) =>
+              setMembers(Number(event?.target.value))
+            }
           >
             <MenuItem value={1}>1</MenuItem>
             <MenuItem value={2}>2</MenuItem>
@@ -69,6 +60,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  gap: 15px;
   padding: 20px;
 `;
 
