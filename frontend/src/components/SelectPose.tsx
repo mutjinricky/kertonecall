@@ -17,13 +17,19 @@ export default function SelectPose({ moveStep, setPose }: Props) {
     setPose("logo192.png");
   };
 
+  const handleSelectPose = () => {
+    if (selectedPose === -1) return;
+    moveStep(1);
+  };
+
   return (
     <Wrapper>
       <PoseCardsWrapper>
         {arr.map((item, index) => {
           return (
             <PoseCard
-              imageUrl="logo192.png"
+              key={index}
+              imageUrl="sample.jpeg"
               isSelected={selectedPose === index}
               handleClick={() => handleClickPoseCard(index)}
             />
@@ -31,7 +37,10 @@ export default function SelectPose({ moveStep, setPose }: Props) {
         })}
       </PoseCardsWrapper>
       <BottomButtons>
-        <BottomButtons.button handleClick={() => moveStep(1)}>
+        <BottomButtons.button
+          isDisabled={selectedPose === -1}
+          handleClick={handleSelectPose}
+        >
           촬영 시작하기
         </BottomButtons.button>
       </BottomButtons>
@@ -49,13 +58,11 @@ const Wrapper = styled.div`
 `;
 
 const PoseCardsWrapper = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  justify-content: center;
-  justify-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
-  row-gap: 10px;
-  column-gap: 10px;
+  gap: 30px;
   width: 100%;
   padding-bottom: 100px;
 `;

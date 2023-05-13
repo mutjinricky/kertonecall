@@ -31,7 +31,6 @@ const Wrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  background-color: ${(props) => props.theme.colors.primary};
   padding: 20px;
 `;
 
@@ -45,5 +44,5 @@ const TextWrapper = styled.div`
 
 const Description = styled.div`
   color: gray;
-  font-size: 15px;
+  font-size: 12px;
 `;

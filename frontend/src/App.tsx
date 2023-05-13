@@ -14,6 +14,7 @@ function App() {
   const [members, setMembers] = useState(4);
   const [pose, setPose] = useState("");
   const [isChallengeMode, setIsChallengeMode] = useState(false);
+  const [score, setScore] = useState(90);
 
   const moveStep = (cnt: number) => {
     setStep(step + cnt);
@@ -21,7 +22,7 @@ function App() {
 
   return (
     <Wrapper>
-      <Header />
+      <Header canBack={step !== 0 && step !== 3} moveStep={moveStep} />
       {step === 0 && (
         <SelectOptions
           moveStep={moveStep}
@@ -33,7 +34,13 @@ function App() {
       )}
       {step === 1 && <SelectPose moveStep={moveStep} setPose={setPose} />}
       {step === 2 && <Camera moveStep={moveStep} />}
-      {step === 3 && <Result setStep={setStep} />}
+      {step === 3 && (
+        <Result
+          moveStep={moveStep}
+          score={score}
+          isChallengeMode={isChallengeMode}
+        />
+      )}
       <div>ss</div>
     </Wrapper>
   );
