@@ -30,7 +30,6 @@ const Wrapper = styled.div`
   justify-content: flex-start;
   align-items: center;
   padding: 20px;
-  background-color: skyblue;
 `;
 
 const Text = styled.div`
