@@ -1,46 +1,37 @@
 import styled from "styled-components";
-import { useRef, useEffect } from "react";
+import { useState } from "react";
 import BottomButtons from "./BottomButton";
+import PoseCard from "./PoseCard";
 
 interface Props {
-  setStep: (arg: number) => void;
+  moveStep: (arg: number) => void;
+  setPose: (arg: string) => void;
 }
 
-export default function SelectPose({ setStep }: Props) {
-  const videoRef = useRef(null);
+export default function SelectPose({ moveStep, setPose }: Props) {
+  const arr = [0, 1, 2, 3, 4, 5, 6];
+  const [selectedPose, setSelectedPose] = useState(-1);
 
-  // useEffect(() => {
-  //   async function loadVideo() {
-  //     const video = videoRef.current;
+  const handleClickPoseCard = (index: number) => {
+    setSelectedPose(index);
+    setPose("logo192.png");
+  };
 
-  //     try {
-  //       const stream = await navigator.mediaDevices.getUserMedia({
-  //         video: true,
-  //       });
-  //       video.srcObject = stream;
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   }
-
-  //   loadVideo();
-
-  //   const handleCanPlay = () => {
-  //     videoRef.current.play();
-  //   };
-
-  //   videoRef.current.addEventListener("canplaythrough", handleCanPlay);
-
-  //   return () => {
-  //     videoRef.current.removeEventListener("canplaythrough", handleCanPlay);
-  //   };
-  // }, []);
   return (
     <Wrapper>
-      <Text>인원을 선택해주세요</Text>
-      {/* <video ref={videoRef} /> */}
+      <PoseCardsWrapper>
+        {arr.map((item, index) => {
+          return (
+            <PoseCard
+              imageUrl="logo192.png"
+              isSelected={selectedPose === index}
+              handleClick={() => handleClickPoseCard(index)}
+            />
+          );
+        })}
+      </PoseCardsWrapper>
       <BottomButtons>
-        <BottomButtons.button handleClick={() => setStep(1)}>
+        <BottomButtons.button handleClick={() => moveStep(1)}>
           촬영 시작하기
         </BottomButtons.button>
       </BottomButtons>
@@ -57,8 +48,14 @@ const Wrapper = styled.div`
   padding: 20px;
 `;
 
-const Text = styled.div`
-  align-self: flex-start;
-  font-size: 15px;
-  padding-top: 60px;
+const PoseCardsWrapper = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  row-gap: 10px;
+  column-gap: 10px;
+  width: 100%;
+  padding-bottom: 100px;
 `;

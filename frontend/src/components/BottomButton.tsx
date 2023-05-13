@@ -21,6 +21,7 @@ function Button({ children, handleClick }: ButtonProps) {
 BottomButtons.button = Button;
 
 const Wrapper = styled.div`
+  z-index: 1;
   position: fixed;
   bottom: 0px;
   display: flex;
@@ -30,6 +31,7 @@ const Wrapper = styled.div`
   gap: 15px;
   padding: 20px;
   width: 100vw;
+  background-color: white;
 `;
 
 const StyledButton = styled.div`
