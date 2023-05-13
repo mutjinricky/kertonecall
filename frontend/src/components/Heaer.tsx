@@ -9,10 +9,10 @@ function Header({}: Props) {
 const Wrapper = styled.div`
   width: 100vw;
   height: 60px;
-  background-color: ${(props) => props.theme.colors.primary};
   padding-top: 35px;
   padding-left: 20px;
   font-weight: bold;
+  background-color: ${(props) => props.theme.colors.primary};
   font-size: 20px;
 `;
 
