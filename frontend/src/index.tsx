@@ -3,14 +3,28 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { ServerStyleSheet } from "styled-components";
+import { ThemeProvider } from "styled-components";
+
+const theme = {
+  // media: {
+  //   mobile: "@media (max-width: 767px)",
+  //   desktop: "@media (min-width: 768px)",
+  // },
+  colors: {
+    primary: "#bbdeff",
+    secondary: "#E8E1D7",
+    danger: "#dc3545",
+  },
+};
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <ThemeProvider theme={theme}>
+      <App />
+    </ThemeProvider>
   </React.StrictMode>
 );
 
