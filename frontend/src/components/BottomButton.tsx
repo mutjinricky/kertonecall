@@ -50,6 +50,7 @@ const StyledButton = styled.div<{ isDisabled?: boolean }>`
   font-size: 15px;
   cursor: pointer;
   font-weight: bold;
+  font-family: var(--font-nanum);
 `;
 
 export default BottomButtons;

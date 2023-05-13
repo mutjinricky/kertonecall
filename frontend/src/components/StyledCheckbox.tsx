@@ -13,7 +13,7 @@ export default function StyledCheckbox({
   return (
     <Wrapper>
       <TextWrapper>
-        챌린지 모드
+        <Text>챌린지 모드</Text>
         <Description>유사도가 80% 이상인 경우에만 촬영 성공</Description>
       </TextWrapper>
       <Checkbox
@@ -33,6 +33,11 @@ const Wrapper = styled.div`
   width: 100%;
   padding: 20px;
 `;
+const Text = styled.div`
+  font-weight: bold;
+  font-size: 20px;
+  color: #1a77cc;
+`;
 
 const TextWrapper = styled.div`
   display: flex;
@@ -40,9 +45,13 @@ const TextWrapper = styled.div`
   justify-content: center;
   align-items: flex-start;
   gap: 5px;
+  font-family: var(--font-nanum);
+  padding-top: 10px;
+  color: #1a77cc;
 `;
 
 const Description = styled.div`
   color: gray;
-  font-size: 12px;
+  font-size: 15px;
+  padding-top: 3px;
 `;

@@ -39,8 +39,9 @@ const Wrapper = styled.div`
 const Text = styled.div`
   padding: 35px;
   font-weight: bold;
+  font-size: 30px;
+  font-family: var(--font-nanum2);
   /* background-color: ${(props) => props.theme.colors.primary}; */
-  font-size: 20px;
 `;
 
 export default Header;
