@@ -30,18 +30,18 @@ const Wrapper = styled.div`
   gap: 15px;
   padding: 20px;
   width: 100vw;
-  background-color: green;
 `;
 
 const StyledButton = styled.div`
   width: 90%;
   height: 60px;
   border-radius: 15px;
-  background-color: white;
+  background-color: ${(props) => props.theme.colors.primary};
   text-align: center;
   line-height: 60px;
   font-size: 15px;
   cursor: pointer;
+  font-weight: bold;
 `;
 
 export default BottomButtons;

@@ -20,7 +20,6 @@ function SelectOptions({
   return (
     <Wrapper>
       <Text>인원을 선택해주세요</Text>
-      <Text>챌린지 모드</Text>
       <StyledCheckbox
         isChallengeMode={isChallengeMode}
         setIsChallengeMode={setIsChallengeMode}
@@ -46,6 +45,7 @@ const Wrapper = styled.div`
 const Text = styled.div`
   align-self: flex-start;
   font-size: 15px;
+  padding-top: 60px;
 `;
 
 export default SelectOptions;
