@@ -45,20 +45,29 @@ function Camera({ moveStep, pose }) {
       context.drawImage(video, 0, 0, canvas.width, canvas.height);
       const imageDataUrl = canvas.toDataURL("image/png");
       const base64 = imageDataUrl.replace(/^data:.+;base64,/, "");
-      const imageData = atob(base64.split(",")[1]);
+      const uint8Array = new Uint8Array(
+        atob(base64)
+          .split("")
+          .map((c) => c.charCodeAt(0))
+      );
 
-      // Convert to ArrayBuffer
-      const arrayBuffer = new ArrayBuffer(imageData.length);
-      const view = new Uint8Array(arrayBuffer);
-      for (let i = 0; i < imageData.length; i++) {
-        view[i] = imageData.charCodeAt(i) & 0xff;
-      }
+      const blob = new Blob([uint8Array], { type: "image/png" });
+      console.log({ uint8Array });
 
-      const blob = new Blob([arrayBuffer], { type: "image/png" });
+      // // Convert to ArrayBuffer
+      // const arrayBuffer = new ArrayBuffer(imageData.length);
+      // const view = new Uint8Array(arrayBuffer);
+      // for (let i = 0; i < imageData.length; i++) {
+      //   view[i] = imageData.charCodeAt(i) & 0xff;
+      // }
+
       const formData = new FormData();
       formData.append("file", blob, "image.png");
 
-      fetch("your-upload-api-url", {
+      console.log({ formData });
+
+      // console.log({ formData });
+      fetch("http://localhost:8000/api/image", {
         method: "POST",
         body: formData,
       })
