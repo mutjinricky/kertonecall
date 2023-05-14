@@ -45,11 +45,15 @@ function Camera({ moveStep, pose }) {
       context.drawImage(video, 0, 0, canvas.width, canvas.height);
       const imageDataUrl = canvas.toDataURL("image/png");
       const base64 = imageDataUrl.replace(/^data:.+;base64,/, "");
-      const uint8Array = new Uint8Array(
-        atob(base64)
-          .split("")
-          .map((c) => c.charCodeAt(0))
-      );
+      const imageData = atob(base64.split(",")[1]);
+
+      // Convert to ArrayBuffer
+      const arrayBuffer = new ArrayBuffer(imageData.length);
+      const view = new Uint8Array(arrayBuffer);
+      for (let i = 0; i < imageData.length; i++) {
+        view[i] = imageData.charCodeAt(i) & 0xff;
+      }
+
       const blob = new Blob([arrayBuffer], { type: "image/png" });
       const formData = new FormData();
       formData.append("file", blob, "image.png");
