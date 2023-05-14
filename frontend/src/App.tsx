@@ -15,7 +15,8 @@ function App() {
   const [pose, setPose] = useState("sample.jpeg");
   const [isChallengeMode, setIsChallengeMode] = useState(false);
   const [isRandom, setIsRandom] = useState(false);
-  const [score, setScore] = useState(50);
+  const [score, setScore] = useState(90);
+  const [result, setResult] = useState<any>(null);
 
   const moveStep = (cnt: number) => {
     setStep(step + cnt);
@@ -41,12 +42,15 @@ function App() {
         />
       )}
       {step === 1 && <SelectPose moveStep={moveStep} setPose={setPose} />}
-      {step === 2 && <Camera moveStep={moveStep} pose={pose} />}
+      {step === 2 && (
+        <Camera moveStep={moveStep} pose={pose} setResult={setResult} />
+      )}
       {step === 3 && (
         <Result
           moveStep={moveStep}
           score={score}
           isChallengeMode={isChallengeMode}
+          result={result}
         />
       )}
     </Wrapper>

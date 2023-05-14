@@ -2,7 +2,7 @@ import styled from "styled-components";
 import BottomButtons from "./BottomButton";
 import { useRef, useEffect } from "react";
 
-function Camera({ moveStep, pose }) {
+function Camera({ moveStep, pose, setResult }) {
   const videoRef = useRef(null);
 
   useEffect(() => {
@@ -50,30 +50,19 @@ function Camera({ moveStep, pose }) {
           .split("")
           .map((c) => c.charCodeAt(0))
       );
-
       const blob = new Blob([uint8Array], { type: "image/png" });
-      console.log({ uint8Array });
-
-      // // Convert to ArrayBuffer
-      // const arrayBuffer = new ArrayBuffer(imageData.length);
-      // const view = new Uint8Array(arrayBuffer);
-      // for (let i = 0; i < imageData.length; i++) {
-      //   view[i] = imageData.charCodeAt(i) & 0xff;
-      // }
-
+      const url = URL.createObjectURL(blob);
+      setResult(blob);
       const formData = new FormData();
-      formData.append("file", blob, "image.png");
+      formData.append("image", blob);
 
-      console.log({ formData });
-
-      // console.log({ formData });
-      fetch("http://localhost:8000/api/image", {
-        method: "POST",
-        body: formData,
-      })
-        .then((response) => response.json())
-        .then((data) => console.log(data))
-        .catch((error) => console.error(error));
+      // fetch("http://localhost:8000/api/image", {
+      //   method: "POST",
+      //   body: formData,
+      // })
+      //   .then((response) => response.json())
+      //   .then((data) => console.log(data))
+      //   .catch((error) => console.error(error));
 
       const stream = videoRef.current.srcObject;
       stream.getTracks().forEach((track) => {

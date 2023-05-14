@@ -5,9 +5,15 @@ interface Props {
   moveStep: (arg: number) => void;
   score: number;
   isChallengeMode: boolean;
+  result: any;
 }
 
-export default function Result({ moveStep, score, isChallengeMode }: Props) {
+export default function Result({
+  moveStep,
+  score,
+  isChallengeMode,
+  result,
+}: Props) {
   let grade;
   let color;
   let desc;
@@ -34,7 +40,7 @@ export default function Result({ moveStep, score, isChallengeMode }: Props) {
       </div>
       <Desc>{desc}</Desc>
       <ImageWrapper>
-        <img src="logo192.png" alt="result" />
+        <img src={URL.createObjectURL(result)} alt="result" width="100%" />
       </ImageWrapper>
       <BottomButtons>
         {(!isChallengeMode || grade === "good") && (
