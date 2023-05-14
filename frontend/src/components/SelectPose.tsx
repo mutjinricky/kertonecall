@@ -9,12 +9,20 @@ interface Props {
 }
 
 export default function SelectPose({ moveStep, setPose }: Props) {
-  const arr = [0, 1, 2, 3, 4, 5, 6];
+  const arr = [
+    "pose1/1.jpeg",
+    "pose1/2.jpeg",
+    "pose1/3.jpeg",
+    "pose1/3.jpeg",
+    "pose1/3.jpeg",
+    "pose1/3.jpeg",
+    "pose1/3.jpeg",
+  ];
   const [selectedPose, setSelectedPose] = useState(-1);
 
   const handleClickPoseCard = (index: number) => {
     setSelectedPose(index);
-    setPose("logo192.png");
+    setPose(arr[index]);
   };
 
   const handleSelectPose = () => {
@@ -29,7 +37,7 @@ export default function SelectPose({ moveStep, setPose }: Props) {
           return (
             <PoseCard
               key={index}
-              imageUrl="sample.jpeg"
+              imageUrl={item}
               isSelected={selectedPose === index}
               handleClick={() => handleClickPoseCard(index)}
             />
@@ -54,7 +62,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  padding: 20px;
+  width: 80%;
 `;
 
 const PoseCardsWrapper = styled.div`

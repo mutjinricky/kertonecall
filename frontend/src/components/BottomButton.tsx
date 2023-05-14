@@ -28,22 +28,21 @@ BottomButtons.button = Button;
 
 const Wrapper = styled.div`
   z-index: 1;
-  position: fixed;
   bottom: 0px;
+  position: fixed;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 15px;
-  padding: 20px;
   width: 100vw;
+  padding: 15px 0px;
   background-color: white;
 `;
 
 const StyledButton = styled.div<{ disabled?: boolean; danger?: boolean }>`
-  width: 90%;
+  width: 80%;
   height: 60px;
-  border-radius: 15px;
   background-color: ${(props) =>
     props.disabled
       ? "gray"

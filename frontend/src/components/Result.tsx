@@ -61,12 +61,13 @@ const Wrapper = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  gap: 15px;
+  gap: 10px;
+  width: 80%;
   padding-top: 150px;
 `;
 
 const ImageWrapper = styled.div`
-  width: 90%;
+  width: 100%;
   height: 0;
   padding-bottom: 50.63%;
   background-color: yellow;
@@ -76,14 +77,13 @@ const ImageWrapper = styled.div`
 const Text = styled.div`
   font-size: 32px;
   font-weight: 800;
-  padding-top: 30px;
   font-family: var(--font-noto);
 `;
 
 const Desc = styled.div`
   font-size: 24px;
   font-weight: 600;
-  margin-bottom: 60px;
+  margin-bottom: 50px;
   font-family: var(--font-noto);
 `;
 

@@ -18,7 +18,7 @@ function Header({ moveStep, children, isRandom }: Props) {
   };
   return (
     <Wrapper>
-      <StyledArrow onClick={handleArrow} style={{ fontSize: "30px" }} />
+      <StyledArrow onClick={handleArrow} style={{ fontSize: "25px" }} />
       <Text>{children}</Text>
     </Wrapper>
   );
@@ -35,15 +35,16 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 90%;
-  height: 100px;
+  width: 80%;
+  height: 80px;
   /* background-color: ${(props) => props.theme.colors.primary}; */
 `;
 
 const Text = styled.div`
-  padding: 35px;
+  height: 80px;
+  line-height: 80px;
   font-weight: bold;
-  font-size: 30px;
+  font-size: 25px;
   font-family: var(--font-noto);
   /* background-color: ${(props) => props.theme.colors.primary}; */
 `;

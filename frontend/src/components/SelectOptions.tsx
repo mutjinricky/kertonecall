@@ -42,7 +42,7 @@ function SelectOptions({
         <Subtitle>소중한 만남의 기록, 포토의 포즈로부터</Subtitle>
       </Titles>
       <Text>인원을 선택해주세요</Text>
-      <Box sx={{ minWidth: "90%" }}>
+      <Box sx={{ minWidth: "100%" }}>
         <FormControl fullWidth>
           <Select
             value={String(members)}
@@ -82,16 +82,17 @@ function SelectOptions({
 
 const Wrapper = styled.div`
   flex: 1;
+  width: 80%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   gap: 15px;
-  padding-top: 40px;
+  padding-top: 100px;
 `;
 
 const Text = styled.div`
-  width: 90%;
+  width: 100%;
   font-size: 20px;
   padding-top: 60px;
   padding-bottom: 10px;

@@ -34,7 +34,7 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 90%;
+  width: 100%;
   padding: 10px 0px;
 `;
 const Text = styled.div`

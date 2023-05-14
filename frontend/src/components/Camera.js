@@ -2,7 +2,7 @@ import styled from "styled-components";
 import BottomButtons from "./BottomButton";
 import { useRef, useEffect } from "react";
 
-function Camera({ moveStep }) {
+function Camera({ moveStep, pose }) {
   const videoRef = useRef(null);
 
   useEffect(() => {
@@ -60,7 +60,7 @@ function Camera({ moveStep }) {
       <Text>포즈를 맞춰주세요</Text>
       <CameraWrapper>
         <PoseWrapper>
-          <img src="sample.jpeg" alt="result" width="100%" />
+          <img src={pose} alt="result" width="100%" />
         </PoseWrapper>
         <video ref={videoRef} width="100%" autoPlay muted playsInline />
       </CameraWrapper>
@@ -75,6 +75,7 @@ function Camera({ moveStep }) {
 
 const Wrapper = styled.div`
   flex: 1;
+  width: 80%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -85,9 +86,9 @@ const Wrapper = styled.div`
 
 const CameraWrapper = styled.div`
   position: relative;
-  width: 90%;
+  width: 100%;
   height: 0;
-  padding-bottom: 50.63%;
+  padding-bottom: 56.25%;
   border-radius: 15px;
   overflow: hidden;
 `;
@@ -102,8 +103,10 @@ const PoseWrapper = styled.div`
 `;
 
 const Text = styled.div`
-  font-size: 18px;
+  font-weight: 600;
+  font-size: 23px;
   padding-top: 60px;
+  font-family: var(--font-noto);
 `;
 
 export default Camera;

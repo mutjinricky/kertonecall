@@ -41,7 +41,7 @@ function App() {
         />
       )}
       {step === 1 && <SelectPose moveStep={moveStep} setPose={setPose} />}
-      {step === 2 && <Camera moveStep={moveStep} />}
+      {step === 2 && <Camera moveStep={moveStep} pose={pose} />}
       {step === 3 && (
         <Result
           moveStep={moveStep}
@@ -49,7 +49,6 @@ function App() {
           isChallengeMode={isChallengeMode}
         />
       )}
-      <div>ss</div>
     </Wrapper>
   );
 }
