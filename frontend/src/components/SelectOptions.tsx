@@ -29,7 +29,8 @@ function SelectOptions({
 }: Props) {
   const handleSelectPose = () => {
     if (isRandom) {
-      setPose("sample.jpeg");
+      const num = Math.floor(Math.random() * 3) + 1;
+      setPose(`pose1/${num}.jpeg`);
       moveStep(2);
     } else {
       moveStep(1);
