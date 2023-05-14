@@ -44,8 +44,24 @@ function Camera({ moveStep, pose }) {
       const context = canvas.getContext("2d");
       context.drawImage(video, 0, 0, canvas.width, canvas.height);
       const imageDataUrl = canvas.toDataURL("image/png");
+      const base64 = imageDataUrl.replace(/^data:.+;base64,/, "");
+      const uint8Array = new Uint8Array(
+        atob(base64)
+          .split("")
+          .map((c) => c.charCodeAt(0))
+      );
+      const blob = new Blob([arrayBuffer], { type: "image/png" });
+      const formData = new FormData();
+      formData.append("file", blob, "image.png");
 
-      console.log(imageDataUrl);
+      fetch("your-upload-api-url", {
+        method: "POST",
+        body: formData,
+      })
+        .then((response) => response.json())
+        .then((data) => console.log(data))
+        .catch((error) => console.error(error));
+
       const stream = videoRef.current.srcObject;
       stream.getTracks().forEach((track) => {
         console.log(track);
